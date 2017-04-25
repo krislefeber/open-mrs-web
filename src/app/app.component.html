@@ -1,5 +1,23 @@
 <h1>
   Open MRS GUI
 </h1>
-<button type="button" name="button" (click)="getTests()">Get Users</button>
-{{ list }}
+<button md-button type="button" name="button" (click)="getTests()">Refresh Users</button>
+<div *ngFor="let item of list">
+  <h3>Patient: {{item.patient.display}}</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Blood Pressure</th>
+        <th>Heart Rate</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let test of item.data">
+        <td>{{test.heartRate}}</td>
+        <td>{{test.systolicPressure}}</td>
+        <td>{{test.heartRate * test.systolicPressure }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -8,7 +8,7 @@ import { StressTestResult } from './dto/StressTestResult';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  list:[Patient, StressTestResult[]] = [,[]];
+  list:any;
 
   constructor(private patientService:PatientService){}
 
@@ -18,10 +18,12 @@ export class AppComponent implements OnInit {
 
   getTests() {
     let self = this;
+    this.list = [];
     this.patientService.getAllPatients().then((patients)=> {
       patients.forEach((patient) => {
         self.patientService.getStressTestData(patient.uuid).then((data) => {
-          self.list.push(patient,data);
+          if(data != undefined && data.length >0)
+          self.list.push({patient,data});
         });
       });
     });

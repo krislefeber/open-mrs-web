@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { PatientService } from './services/patient.service';
 import { AppComponent } from './app.component';
 import { CovalentCoreModule } from '@covalent/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +14,8 @@ import { CovalentCoreModule } from '@covalent/core';
     CovalentCoreModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule
   ],
   providers: [PatientService],
   bootstrap: [AppComponent]
