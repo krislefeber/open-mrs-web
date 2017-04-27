@@ -7,16 +7,20 @@
   <table>
     <thead>
       <tr>
-        <th>Blood Pressure</th>
+        <th>Date</th>
         <th>Heart Rate</th>
+        <th>Blood Pressure</th>
         <th>Score</th>
+        <th>Severity</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let test of item.data">
+        <td>{{test.obsDatetime | date}}</td>
         <td>{{test.heartRate}}</td>
         <td>{{test.systolicPressure}}</td>
         <td>{{test.heartRate * test.systolicPressure }}</td>
+        <td>{{getSeverity(test.heartRate * test.systolicPressure)}}</td>
       </tr>
     </tbody>
   </table>

@@ -28,4 +28,20 @@ export class AppComponent implements OnInit {
       });
     });
   }
+  getSeverity(score):string {
+    let s =(score - 10000) / 5000;
+    s =s | 0;
+    switch(s) {
+      case 0:
+      return 'Low';
+      case 1:
+      return 'Low Intermediate';
+      case 2:
+      return 'Intermediate';
+      case 3:
+      return 'High Intermediate';
+      default:
+      return 'High';
+    }
+  }
 }

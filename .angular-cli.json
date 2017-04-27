@@ -19,7 +19,7 @@
     "prefix": "app",
     "styles": [
       "styles.css",
-      "covalent.scss"
+      "covalent.scss",
       "../node_modules/@covalent/core/common/platform.scss"
     ],
     "scripts": [],

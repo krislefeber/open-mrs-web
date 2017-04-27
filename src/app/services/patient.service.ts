@@ -12,7 +12,7 @@ export class PatientService {
 
   getPatient(uuid: string): Promise<Patient> {
     return new Promise<Patient>((resolve, error) => {
-      return this.http.get("http://192.168.64.138:8080/openmrs/ws/rest/v1/person/" + uuid, { headers: this.getHeaders() }).toPromise().then((response) => {
+      return this.http.get("http://localhost:8080/openmrs/ws/rest/v1/person/" + uuid, { headers: this.getHeaders() }).toPromise().then((response) => {
         resolve(response.json());
       }).catch((err) => {
         console.log(err);
@@ -21,7 +21,7 @@ export class PatientService {
   }
   getAllPatients(): Promise<Patient[]> {
     return new Promise<Patient[]>((resolve, error) => {
-      return this.http.get("http://192.168.64.138:8080/openmrs/ws/rest/v1/person?q=", { headers: this.getHeaders() }).toPromise().then((response) => {
+      return this.http.get("http://localhost:8080/openmrs/ws/rest/v1/person?q=", { headers: this.getHeaders() }).toPromise().then((response) => {
         resolve(response.json().results);
       }).catch((err) => {
         console.log(err);
@@ -31,7 +31,7 @@ export class PatientService {
   getStressTestData(uuid: string): Promise<StressTestResult[]> {
     let self = this;
     return new Promise<StressTestResult[]>((resolve, error) => {
-      return this.http.get("http://192.168.64.138:8080/openmrs/ws/rest/v1/obs?patient=" + uuid + "&v=full", { headers: this.getHeaders() }).
+      return this.http.get("http://localhost:8080/openmrs/ws/rest/v1/obs?patient=" + uuid + "&v=full", { headers: this.getHeaders() }).
         toPromise().then((response) => {
           let rows: any[] = response.json().results;
           let testResults: StressTestResult[] = [];
